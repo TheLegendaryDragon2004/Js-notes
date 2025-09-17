@@ -45,16 +45,31 @@ var getName = function () {
   console.log("Namaste JavaScript");
 };
 getname() \\works as expected 
-// The code won't execute as the first line itself throws an TypeError.
 ```
 ```js
 console.log(getName);\\not function
 var getName = () => {
   console.log("Namaste JavaScript");
 };
-getname() \\works as expected 
+getname()
 // The code won't execute as the first line itself throws an TypeError.
 ```
+
+if arguments same logic only
+```js
+var add;  // hoisted, initialized as undefined
+
+console.log(add);        // prints undefined
+console.log(add(2, 3));  // calling undefined → TypeError
+add = function (a, b) {  // now assignment happens
+  return a + b;
+};
+console.log(add(2, 3));  // works now
+```
+
+
+
+
 
 
 Watch Live On Youtube below:
