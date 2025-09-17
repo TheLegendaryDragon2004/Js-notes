@@ -29,7 +29,7 @@ function getName() {
 - Now let's observe a different example and try to understand the output.
 
 ```js
-getName(); // Uncaught TypeError: getName is not a function
+getName(); // Uncaught TypeError: getName is not a function because it is like undefined ()
 console.log(getName);
 var getName = function () {
   console.log("Namaste JavaScript");
@@ -38,6 +38,24 @@ var getName = function () {
 ```
 
 <hr>
+
+```js
+console.log(getName);\\undefined
+var getName = function () {
+  console.log("Namaste JavaScript");
+};
+getname() \\works as expected 
+// The code won't execute as the first line itself throws an TypeError.
+```
+```js
+console.log(getName);\\not function
+var getName = () => {
+  console.log("Namaste JavaScript");
+};
+getname() \\works as expected 
+// The code won't execute as the first line itself throws an TypeError.
+```
+
 
 Watch Live On Youtube below:
 
