@@ -187,11 +187,70 @@ A closure is any function that remembers variables from its outer scope. It does
   JavaScript! 🚀
 
 - Disadvantages of Closure:
-  - Over consumption of memory
-  - Memory Leak
-  - Freeze browser
+. Over-consumption of Memory
 
+Normally, when a function finishes, all its local variables are garbage collected (freed from memory).
+
+But in a closure, the inner function still remembers variables from the outer function, even after the outer function has finished.
+
+This means variables that are no longer needed might still be stored in memory.
+
+👉 Example:
+
+```js
+function bigClosure() {
+  let bigArray = new Array(1000000).fill("data"); // huge array
+  return function() {
+    console.log(bigArray[0]);
+  }
+}
+const keep = bigClosure(); // bigArray stays in memory
+```
+
+
+Here, bigArray never gets freed because the inner function is still referencing it.
+
+🔹 2. Memory Leaks
+
+If closures keep referencing variables or DOM elements that are no longer needed, they prevent garbage collection.
+
+This is called a memory leak — memory that can’t be reclaimed.
+
+👉 Example:
+
+```js
+function attachEvent() {
+  let element = document.getElementById("btn");
+  element.addEventListener("click", function() {
+    console.log(element.id);
+  });
+}
+attachEvent();
+```
+
+
+Even if you remove the button from the DOM, the closure still holds a reference to element, so it won’t be garbage collected → memory leak.
+
+🔹 3. Freeze / Slow Browser
+
+If a closure accidentally traps a large object or keeps growing (like appending data to an array in memory), your browser’s memory usage can explode.
+
+Too much memory usage makes the browser slow, and in worst cases, it freezes.
+
+👉 Example:
+
+``js
+function badClosure() {
+  let growing = [];
+  return function(data) {
+    growing.push(data); // keeps growing, never released
+  }
+}
+const add = badClosure();
+setInterval(() => add("leak"), 1); // will eventually freeze browser
+```
 <hr>
+
 
 Watch Live On Youtube below:
 
