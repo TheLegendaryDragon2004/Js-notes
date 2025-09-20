@@ -22,7 +22,7 @@
 
 - **Reference Error** are thrown when variables are in temporal dead zone.
 
-- **Syntax Error** doesn't even let us run single line of code.
+- **Syntax Error** doesn't even let us run single line of code.On the other hand, runtime errors (like ReferenceError, TypeError) allow earlier lines to run — the program only crashes when it reaches the faulty line.
 
   - ```js
       let a = 10;
