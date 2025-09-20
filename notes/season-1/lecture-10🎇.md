@@ -189,6 +189,7 @@ A closure is any function that remembers variables from its outer scope. It does
 **Disadvantages of Closure:**
 
 1.**overconsumption of memory**
+
 Normally, when a function finishes, all its local variables are garbage collected (freed from memory).
 
 But in a closure, the inner function still remembers variables from the outer function, even after the outer function has finished.
