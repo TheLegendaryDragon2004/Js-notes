@@ -14,6 +14,7 @@
   }
   var z = x();
   console.log(z); // value of z is entire code of function y.
+  console.log(z()); //By default, a function with no return gives undefined.
   ```
 
   - In above code, When y is returned, not only is the function returned but the entire closure (fun y + its lexical scope) is returned and put inside z. So when z is used somewhere else in program, it still remembers var a inside x()
