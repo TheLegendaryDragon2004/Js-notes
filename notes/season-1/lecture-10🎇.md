@@ -39,6 +39,22 @@ z(); // 7 900
 - Thus In simple words, we can say:
   - **\*A closure is a function** that has access to its outer function scope even after the function has returned. Meaning, A closure can remember and access variables and arguments reference of its outer function even after the function has returned.\*
 
+```js
+function greetLater() {
+  let name = "Vinayak";
+
+  setTimeout(function () {
+    console.log("Hello " + name); // <-- closure: remembers "name"
+  }, 2000);
+}
+
+greetLater();
+
+```
+
+A closure is any function that remembers variables from its outer scope. It doesn’t need to be returned — it just has to exist inside another function and use outer variables.
+
+
 <br>
 
 - ![Closure Explaination](/assets/closure.jpg "Lexical Scope")
