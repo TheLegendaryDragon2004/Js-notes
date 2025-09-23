@@ -31,6 +31,10 @@
       let a = 10;
       var a = 100; // this code also rejected upfront as SyntaxError. (can't use same name in same scope)
     ```
+  - ```js
+    let a;
+    console.log(a); //undefined
+    ```
 
 - **Let** is a stricter version of **var**. Now, **const** is even more stricter than **let**.
 
