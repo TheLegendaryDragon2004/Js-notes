@@ -10,6 +10,11 @@
   console.log(window.a); // undefined
   console.log(window.b); // 15
   ```
+      ```js
+  let a;
+  console.log(a);\\undefined
+  ```
+
   It looks like let isn't hoisted, **but it is**, let's understand
   - Both a and b are actually initialized as _undefined_ in hoisting stage. But var **b** is inside the storage space of GLOBAL, and **a** is in a separate memory object called script, where it can be accessed only after assigning some value to it first ie. one can access 'a' only if it is assigned. Thus, it throws error.
 
