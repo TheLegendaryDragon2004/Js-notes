@@ -77,6 +77,23 @@
   - Uncaught TypeError: Assignment to constant variable
     - This Error signifies that we are reassigning to a const variable.
 
+**Const special**
+
+const does not make the value immutable.
+
+It only means the binding (the variable name) cannot be reassigned to a new value.
+
+Example:
+```js
+const x = 5;
+x = 10; // ❌ Error, cannot reassign
+```
+
+But if the const variable holds an object, the contents of the object can still change:
+```js
+const obj = { a: 1 };
+obj.a = 2;     // ✅ allowed
+```
 ### SOME GOOD PRACTICES:
 
 - Try using const wherever possible.
