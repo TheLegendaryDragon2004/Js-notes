@@ -10,7 +10,7 @@
   console.log(window.a); // undefined
   console.log(window.b); // 15
   ```
-      ```js
+  ```js
   let a;
   console.log(a);\\undefined
   ```
