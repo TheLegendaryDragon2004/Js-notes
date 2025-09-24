@@ -2,6 +2,11 @@
 
 ###
 
+
+###
+Setlled Got result(reject/fullfiled) meaning of settled
+
+
 4 Promise APIs which are majorly used:
 
 - Promise.all()
