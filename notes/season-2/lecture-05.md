@@ -67,12 +67,12 @@ If in above situation what if p2 got rejected, nothing will happen as Promise.an
 const p1 = new Promise((resolve, reject) => {
   setTimeout(() => {
     resolve("P1 Success");
-  }, 3000);
+  }, 1000);
 });
 const p2 = new Promise((resolve, reject) => {
   setTimeout(() => {
     resolve("P2 Success");
-  }, 1000);
+  }, 3000);
 });
 const p3 = new Promise((resolve, reject) => {
   setTimeout(() => {
