@@ -29,11 +29,14 @@ function z() {
     function y() {
       console.log(a, b);
     }
-    y();
+    return y;
   }
-  x();
+  return x();
 }
-z(); // 7 900
+
+var closureFn = z(); 
+closureFn(); // still prints 7 900
+
 ```
 
 - Thus In simple words, we can say:
