@@ -143,6 +143,23 @@ outer();
         console.log(totalPrice); // 108
         ```
 
+
+
+        Why we need currying?
+a) Partial Application
+
+```js
+You can fix some arguments ahead of time and reuse the function.
+
+const calculateTax = taxRate => price => price + price * (taxRate / 100);
+
+const calculateSalesTax = calculateTax(8);  // fix 8% tax
+const calculateLuxuryTax = calculateTax(15); // fix 15% tax
+
+console.log(calculateSalesTax(100)); // 108
+console.log(calculateLuxuryTax(100)); // 115
+```
+
   3.  **Memoization**:
 
       - Memoization optimizes expensive function calls by caching their
