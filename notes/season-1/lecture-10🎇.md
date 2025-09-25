@@ -44,7 +44,7 @@ function x(i, h) {
 console.log(x(5, 7)());
 ```
 -Another Example
-
+```js
 function x(i,h){
     let z = 10;
 
@@ -61,7 +61,7 @@ function x(i,h){
 }
 
 console.log(x(5,7)(7,8)()); 
-
+```
 - Another Example
 
 ```js
