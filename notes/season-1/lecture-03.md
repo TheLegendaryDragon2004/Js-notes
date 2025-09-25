@@ -26,6 +26,8 @@ function getName() {
 }
 ```
 
+U need to note that for different environment like node it will show [Function: getName]
+
 - Now let's observe a different example and try to understand the output.
 
 ```js
