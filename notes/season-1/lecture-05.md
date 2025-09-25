@@ -19,7 +19,15 @@ console.log(window.x); // 10
 
 <hr>
 
-for node there is no window. var don't attach to window.
+for node there is no window. there is a global and gloabalThis(for cross platform) but var don't attach to global
+
+```js
+var x = 2;
+console.log(x);
+console.log(global.x)\\not-defined
+```
+
+
 Watch Live On Youtube below:
 
 <a href="https://www.youtube.com/watch?v=QCRpVw2KXf8&ab_channel=AkshaySaini" target="_blank"><img src="https://img.youtube.com/vi/QCRpVw2KXf8/0.jpg" width="750"
