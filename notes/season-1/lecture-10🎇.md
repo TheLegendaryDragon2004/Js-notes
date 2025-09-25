@@ -37,6 +37,8 @@ function z() {
 var closureFn = z(); 
 closureFn(); // still prints 7 900
 
+
+
 ```
 
 - Thus In simple words, we can say:
@@ -57,6 +59,21 @@ greetLater();
 
 A closure is any function that remembers variables from its outer scope. It doesn’t need to be returned — it just has to exist inside another function and use outer variables.
 
+
+Example
+
+```js
+function outer() {
+  let a = 10;
+  function inner() {
+    console.log("a =", a);
+  }
+  inner(); // inner can access 'a'
+}
+
+outer();
+// Output: a = 10
+```
 
 <br>
 
