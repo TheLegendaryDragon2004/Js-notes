@@ -18,6 +18,49 @@
   ```
 
   - In above code, When y is returned, not only is the function returned but the entire closure (fun y + its lexical scope) is returned and put inside z. So when z is used somewhere else in program, it still remembers var a inside x()
+ 
+
+- Another Example
+```js
+function x(i, h) {
+    let z = 10;
+
+    function y(f, g) {
+        console.log(f + g); // sum of f + g
+
+        function p() {
+            console.log(f + g + h); // sum of f + g + h
+            return z;
+        }
+
+        return p;
+    }
+
+    console.log(i + h); // sum of i + h
+
+    return y(5, 8); // pass f = 5, g = 8 (example values)
+}
+
+console.log(x(5, 7)());
+```
+-Another Example
+
+function x(i,h){
+    let z = 10;
+
+    function y(f,g){
+        console.log(f+g); // sum of f+g
+        function p(){
+            console.log(f+g+h); // sum of f+g+h
+            return z;
+        }
+        return p;
+    }
+
+    return y; // return function y itself
+}
+
+console.log(x(5,7)(7,8)()); 
 
 - Another Example
 
