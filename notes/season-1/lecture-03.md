@@ -57,6 +57,16 @@ getname()
 // The code won't execute as the first line itself throws an TypeError.
 ```
 
+```js
+console.log(x);
+console.log(add(9,2));//11
+
+var x = 0;
+function add(a,b){
+    return a + b;
+}
+console.log(add(5,2));//7
+```
 if arguments same logic only
 ```js
 var add;  // hoisted, initialized as undefined
