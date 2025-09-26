@@ -82,6 +82,33 @@ console.log(add(2, 3));  // works now
 
 
 
+**Special**
+```js
+var getName = function pari() {
+  console.log("Namaste JavaScript");
+};
+```
+This assigns a function object to getName.
+
+The function has an internal name pari:
+
+It’s only visible inside the function itself (for recursion or self-reference).
+
+Outside, pari is not defined in the outer/global scope.
+
+
+but it can be used for recusion 
+
+```js
+pari()\\error
+console.log(getName);
+var getName = function pari() {
+  console.log("Namaste JavaScript");
+  pari();
+};
+getName();
+```
+The above code will print namaste javascript endlessly
 
 
 Watch Live On Youtube below:
