@@ -195,6 +195,22 @@ createOrder(cart)
   })
 ```
 
+1. .then() always returns a new Promise.
+
+
+2. Inside .then():
+
+Returning a normal value → wrapped automatically in a resolved Promise for the next .then().
+
+Returning a Promise → the next .then() waits for it to resolve.
+
+
+
+3. .then() does not convert functions themselves to async.
+
+Only an async function automatically wraps its return value in a Promise.
+
+
 <hr>
 
 Watch Live On Youtube below:
