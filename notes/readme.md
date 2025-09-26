@@ -1,5 +1,5 @@
-#Important things about js  
+# Important things about js  
 
-##Behaviour 1  
+## Behaviour 1  
 ```js
 
