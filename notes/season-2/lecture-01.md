@@ -109,6 +109,41 @@ api.createOrder(cart, function () {
 
 // 💡 In next session, we will see how we can fix such problems.
 ```
+```js
+// Simulated API functions
+const api = {
+  createOrder: function(cart, callback) {
+    setTimeout(() => {
+      console.log("Order created for cart:", cart);
+      callback("Order123"); // pass orderId to next step
+    }, 1000);
+  },
+  proceedToPayment: function(callback) {
+    setTimeout(() => {
+      console.log("Payment processed");
+      callback("PaymentSuccess"); // pass payment info
+    }, 1000);
+  },
+  showOrderSummary: function(callback) {
+    setTimeout(() => {
+      console.log("Order summary shown");
+      callback();
+    }, 1000);
+  },
+  updateWallet: function() {
+    console.log("Wallet updated");
+  }
+};
+
+// Using nested callbacks (callback hell)
+api.createOrder("myCart", function(orderId) {
+  api.proceedToPayment(function(paymentInfo) {
+    api.showOrderSummary(function() {
+      api.updateWallet();
+    });
+  });
+});
+```
 
 > 💡 Async programming in JavaScript exists because callback exits.
 
