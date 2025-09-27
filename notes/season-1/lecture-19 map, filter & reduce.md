@@ -1,6 +1,7 @@
 # Episode 19 : map, filter & reduce
 
-> map, filter & reducer are Higher Order Functions.
+> map, filter & reducer are Higher Order Functions. can only be applied on arrays sort too
+
 
 ## Map function
 
@@ -127,7 +128,91 @@ const output = arr.reduce((max, current) => {
 }, 0);
 console.log(output); // 6
 ```
+## SORT function
+The **sort()** method sorts the elements of an array in place and returns the sorted array.
 
+### Syntax
+```js
+arr.sort([compareFunction]);
+```
+compareFunction (optional): Function that defines the sort order.
+If omitted, elements are converted to strings and sorted in lexicographical (dictionary) order.
+
+
+1️⃣ Default Sorting (lexicographical)
+```js
+const fruits = ["banana", "apple", "cherry"];
+console.log(fruits.sort()); // ["apple", "banana", "cherry"]
+
+const nums = [10, 5, 100, 1];
+console.log(nums.sort()); // [1, 10, 100, 5] ❌ strings order
+
+```
+
+⚠️ Numbers are treated as strings by default, so 100 comes before 5.
+
+2️⃣ Numeric Sorting with compareFunction
+```js
+const nums = [10, 5, 100, 1];
+
+// Ascending order
+nums.sort((a, b) => a - b);
+console.log(nums); // [1, 5, 10, 100]
+
+// Descending order
+nums.sort((a, b) => b - a);
+console.log(nums); // [100, 10, 5, 1]
+```
+
+How compareFunction works:
+
+return < 0 → a comes before b
+
+return 0 → a and b stay the same
+
+return > 0 → b comes before a
+
+3️⃣ Sorting Strings with Locale
+```js
+const names = ["Zoe", "Émile", "Alice"];
+names.sort(); // ["Alice", "Zoe", "Émile"] ❌ may not handle accents correctly
+names.sort((a, b) => a.localeCompare(b)); 
+// ["Alice", "Émile", "Zoe"] ✅ handles accents
+```
+
+4️⃣ Sorting Objects
+```js
+const users = [
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 20 },
+  { name: "Charlie", age: 30 }
+];
+
+
+// Sort by age ascending
+users.sort((a, b) => a.age - b.age);
+console.log(users);
+/*
+[
+  { name: "Bob", age: 20 },
+  { name: "Alice", age: 25 },
+  { name: "Charlie", age: 30 }
+]
+*/
+```
+
+5️⃣ Important Notes
+
+sort() mutates the original array.
+```js
+const arr = [3,1,2];
+const sorted = arr.sort();
+console.log(arr); // [1,2,3]  (original changed)
+```
+
+Always provide a compare function for numbers to avoid string-based sorting.
+
+Can be used with higher-order functions, e.g., arr.filter(...).sort(...).
 ## Tricky MAP
 
 ```js
