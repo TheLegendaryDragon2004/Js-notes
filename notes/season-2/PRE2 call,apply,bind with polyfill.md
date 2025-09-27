@@ -184,7 +184,9 @@ x();
 
 ### 📝 Explanation
 - `mybind` takes the target object as the first argument (`args[0]`).  
-- We store the original function (`this`) in `obj`.  
+- We store the original function (`this`) in `obj`.
+- wont work if we dont use obj and call this directly because inside.mybind this points to function(fucntion.mybind and fucntion is an object)
+  but inside returned function it will be window
 - The returned function calls `obj.call(args[0])`, setting `this` to the provided object.  
 - Works fine, but it **ignores extra arguments**.
 
