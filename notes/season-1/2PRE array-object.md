@@ -1,6 +1,4 @@
-Sure! Here's your code converted into **well-formatted Markdown** with explanations under each block for clarity:
 
-````markdown
 # JavaScript Arrays, Objects, Destructuring, Rest & Spread
 
 ## Array Basics
@@ -175,13 +173,3 @@ console.log(obj2342); // { a:6, b:5 }
 
 * If an object has **duplicate keys**, the **last value wins**.
 
----
-
-```
-
-This version is fully Markdown-ready with explanations for **arrays, objects, destructuring, rest, spread, and duplicate keys**.  
-
-If you want, I can also make a **visual table comparing Rest vs Spread for arrays and objects** — very handy for notes.  
-
-Do you want me to make that table?
-```
