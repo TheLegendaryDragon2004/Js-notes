@@ -50,6 +50,21 @@ const binaryArr = arr.map((x) => x.toString(2));
 
 So basically map function is mapping each and every value and transforming it based on given condition.
 
+
+###POLLYFILL
+```js
+Array.prototype.mymap = function(callback){
+    let res= [];
+    for (let i = 0; i < this.length; i++)
+    {
+     res[i] = callback(this[i]);
+    }
+    return res;
+}
+
+let arr = [6,7,8,9];
+console.log(arr.mymap(x => x * x));
+````
 ## Filter function
 
 Filter function is basically used to filter the value inside an array. The arr.filter() method is used to create a new array from a given array consisting of only those elements from the given array which satisfy a condition set by the argument method.
