@@ -1,6 +1,6 @@
 # Image Gallery
 
-![Image 1](/assets/Screenshot (13).png)
+![Image 1](/assets/Screenshot%20(13).png)
 ![Image 2](/assets/Screenshot (14).png)
 ![Image 3](/assets/Screenshot (15).png)
 ![Image 4](/assets/Screenshot (16).png)
