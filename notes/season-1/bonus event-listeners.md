@@ -1,6 +1,3 @@
-Sure! I can clean up your Markdown so it’s **properly formatted, readable, and renders correctly**. I’ll fix headings, code blocks, and spacing, and remove unnecessary repeated words. Here’s the fixed version:
-
-```markdown
 # Image Gallery
 
 ## The DOM Structure
@@ -16,7 +13,7 @@ We can set multiple event listeners for the same element, and the **order of exe
 ## Event Propagation and Bubbling
 ![Image 3](/assets/Screenshot%20(15).png)
 
-**DEFAULT BEHAVIOUR:** bubbling — an event propagates to its parents.  
+**DEFAULT BEHAVIOUR:** bubbling — an event propagates to its parents.
 
 - When we click on an element, its event runs first, then its parent's, then the parent's parent, and so on.
 
@@ -35,11 +32,7 @@ If we add an event to `document`, clicking anywhere triggers it.
 
 The **three phases** of event propagation:
 
-```
-
-Capture (only if capture:true) -> Target -> Bubbling
-
-```
+Capture (only if `capture:true`) -> Target -> Bubbling
 
 - Capture propagates **downwards**.  
 - Example: if grandparent has `capture:true`, clicking child executes **grandparent capture first**, then normal bubbling (`child -> parent -> document`).
@@ -75,7 +68,3 @@ Here, **all captures occur first**, then bubbling.
 ![Image 13](/assets/Screenshot%20(25).png)
 
 A **global event listener** example.
-```
-
----
-
