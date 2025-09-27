@@ -137,6 +137,104 @@ x();
 | **apply** | ✅ Yes                | As an array (`[arg1, arg2]`)  | Result of the function |
 | **bind**  | ❌ No                 | Individually (`arg1, arg2`)   | New function |
 
-- **`call`** → Use when you know arguments beforehand and want immediate execution.  
+- **`call`** → Use when you know arguments beforehand and want immediate execution.
 - **`apply`** → Use when arguments are already in an array.  
-- **`bind`** → Use when you want to create a new function to call later with a fixed `this`.  
+- **`bind`** → Use when you want to create a new function to call later with a fixed `this`.
+
+# 🔧 Custom Implementation of `bind()` (Polyfill)
+
+Now let’s try writing our own versions of `bind` step by step.
+
+---
+
+### Example Setup
+
+```js
+let name = {
+    fistName: "Hari",
+    lastName: "Vianyak",
+};
+
+let printname = function() {
+    console.log(this.fistName + " " + this.lastName);
+};
+
+let printname2 = function(age, state, country) {
+    console.log(this.fistName + " " + this.lastName + " " + age + " " + country + " " + state);
+};
+```
+
+---
+
+## 1. Basic `mybind`
+
+```js
+Function.prototype.mybind = function(...args) {
+    // this -> function being bound (e.g., printname)
+    let obj = this;
+    return function() {
+        obj.call(args[0]);
+    };
+};
+
+let x = printname.mybind(name);
+x(); 
+// Output -> Hari Vianyak
+```
+
+### 📝 Explanation
+- `mybind` takes the target object as the first argument (`args[0]`).  
+- We store the original function (`this`) in `obj`.  
+- The returned function calls `obj.call(args[0])`, setting `this` to the provided object.  
+- Works fine, but it **ignores extra arguments**.
+
+---
+
+## 2. Improved `mybind2` (support preset arguments)
+
+```js
+Function.prototype.mybind2 = function(...args) {
+    let obj = this;
+    let params = args.slice(1); // arguments after 'thisArg'
+    return function() {
+        obj.apply(args[0], params);
+    };
+};
+
+let x2 = printname2.mybind2(name, 5, "india", "kerala");
+x2(); 
+// Output -> Hari Vianyak 5 india kerala
+```
+
+### 📝 Explanation
+- Here we capture **preset arguments** (`params`).  
+- When the returned function is called, we invoke the original with `apply`, passing `args[0]` as `this` and `params` as arguments.  
+- Limitation: This version does **not allow passing extra arguments later**.
+
+---
+
+## 3. Final `mybind3` (full polyfill-like behavior)
+
+```js
+Function.prototype.mybind3 = function(...args) {
+    let obj = this;
+    let params = args.slice(1);
+    return function(...args2) {
+        obj.apply(args[0], [...params, ...args2]);
+    };
+};
+
+let x3 = printname2.mybind3(name, 5, "india");
+x3("kerala");
+// Output -> Hari Vianyak 5 india kerala
+```
+
+### 📝 Explanation
+- `params` stores **preset arguments** (given at bind time).  
+- The returned function also accepts **new arguments** (`args2`).  
+- We combine both sets using the spread operator `[...]`.  
+- Now `mybind3` behaves like the real `bind()`:
+  - Binds `this`.  
+  - Allows partial application (preset arguments).  
+  - Accepts more arguments at call time.  
+
