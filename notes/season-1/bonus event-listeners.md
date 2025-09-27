@@ -67,4 +67,30 @@ Here, **all captures occur first**, then bubbling.
 
 ![Image 13](/assets/Screenshot%20(25).png)
 
+
+
+
+```js
+// Example: Print a message every 2 seconds
+let count = 0;
+const intervalId = setInterval(() => {
+    console.log("Hello! Count: " + count);
+    count++;
+    if (count === 5) {
+        clearInterval(intervalId); // Stop the interval after 5 times
+    }
+}, 2000);
+
+```
+
+setInterval(callback, delay) repeatedly executes the callback function every delay milliseconds.
+Returns an interval ID that can be used to stop the timer with clearInterval().
+Common use cases:
+
+Repeatedly update UI elements (e.g., clock, slideshow).
+
+Polling server or API.
+
+Animations in combination with DOM manipulation
+
 A **global event listener** example.
