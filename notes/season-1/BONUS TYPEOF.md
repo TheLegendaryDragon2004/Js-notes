@@ -1,3 +1,39 @@
+# == VS ===
+
+## == (Equality Operator)
+
+Also called: Loose equality or abstract equality.
+
+Behavior: Compares two values after type coercion.
+That means JavaScript will try to convert the operands to the same type before comparing.
+
+Examples:
+```js
+console.log(5 == "5");   // true  ("5" converted to number 5)
+console.log(0 == false); // true  (false converted to number 0)
+console.log(null == undefined); // true
+console.log(1 == true);  // true  (true converted to 1)
+```
+
+✅ Use == when you want flexible comparison with type conversion.
+
+# 2️⃣ === (Strict Equality Operator)
+
+Also called: Strict equality.
+
+Behavior: Compares both value and type. No type coercion is done.
+
+Examples:
+```js
+console.log(5 === "5");   // false  (number !== string)
+console.log(0 === false); // false  (number !== boolean)
+console.log(null === undefined); // false
+console.log(1 === true);  // false
+console.log(5 === 5);     // true
+```
+
+✅ Use === when you want exact equality and want to avoid type coercion pitfalls.
+# TYPEOF
 ```js
 let arr = [40,50,60];
 console.log(typeof arr);//object
