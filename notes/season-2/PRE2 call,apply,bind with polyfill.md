@@ -172,8 +172,10 @@ let printname2 = function(age, state, country) {
 Function.prototype.mybind = function(...args) {
     // this -> function being bound (e.g., printname)
     let obj = this;
+    console.log(this) // if x.mybind this will be fucntion x
     return function() {
         obj.call(args[0]);
+        console.log(this); //this will be global object
     };
 };
 
