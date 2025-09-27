@@ -1,7 +1,7 @@
 /assets/function.jpg
 # Image Gallery
 
-![Image 1](/assets/scr)
+![Image 1](/assets/Screenshot (13).png)
 ![Image 2](URL2)
 ![Image 3](URL3)
 ![Image 4](URL4)
