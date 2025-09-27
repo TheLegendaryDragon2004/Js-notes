@@ -1,4 +1,4 @@
-# Episode 19 : map, filter & reduce
+# Episode 19 : map, filter,sort & reduce
 
 > map, filter & reducer are Higher Order Functions. can only be applied on arrays sort too
 
