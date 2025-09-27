@@ -91,6 +91,11 @@ var b = function (param1) {
 };
 b(function () {});
 
+x = b;
+x(function(){});// prints " f() {} "
+
+x = b(function(){})
+console.log(x);//undefined(no return) and f(){} (due to console.log) 
 // Other way of doing the same thing:
 var b = function (param1) {
   console.log(param1);
