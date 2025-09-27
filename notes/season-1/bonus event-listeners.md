@@ -67,9 +67,9 @@ Here, **all captures occur first**, then bubbling.
 
 ![Image 13](/assets/Screenshot%20(25).png)
 
+A **global event listener** example.
 
-
-
+# SETINTERVAL
 ```js
 // Example: Print a message every 2 seconds
 let count = 0;
@@ -93,4 +93,4 @@ Polling server or API.
 
 Animations in combination with DOM manipulation
 
-A **global event listener** example.
+
