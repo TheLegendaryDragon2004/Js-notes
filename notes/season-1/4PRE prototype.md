@@ -1,6 +1,5 @@
 Here’s your content converted into proper Markdown (`.md`) format:
 
-````markdown
 # 🔹 JavaScript `prototype`, `__proto__`, and Prototype Inheritance
 
 ## What is a `prototype`?
