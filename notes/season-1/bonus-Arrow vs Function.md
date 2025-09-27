@@ -9,63 +9,67 @@ Yes… mostly ✅, but there are **important differences** between **arrow funct
 **Arrow Function**
 ```js
 const f = () => { console.log("Hi"); }
-Anonymous Function
-
-js
-Copy code
+//Anonymous Function
+```
+**Anonymous Fucntion**
+```js
 const f = function() { console.log("Hi"); }
+```
 ✅ Both can be called like f().
 
 2️⃣ Key Behavioral Differences
-Feature	Arrow Function	Regular Anonymous Function
-this context	Lexical this (inherits from surrounding scope)	Dynamic this (depends on how function is called)
-arguments object	Not available	Available as normal
-new keyword	❌ Cannot be used as constructor	✅ Can be used as constructor
-super	Lexical binding in classes	Depends on call context
-Implicit return	Can omit {} for single expression	Must use return in {}
+
+| Feature            | Arrow Function                                       | Regular Anonymous Function                             |
+|-------------------|------------------------------------------------------|-------------------------------------------------------|
+| `this` context     | Lexical `this` (inherits from surrounding scope)    | Dynamic `this` (depends on how function is called)   |
+| `arguments` object | Not available                                        | Available as normal                                   |
+| `new` keyword      | ❌ Cannot be used as constructor                     | ✅ Can be used as constructor                          |
+| `super`            | Lexical binding in classes                           | Depends on call context                               |
+| Implicit return    | Can omit `{}` for single expression                  | Must use `return` in `{}`                             |
+
 
 3️⃣ When You Can Safely Swap
 Simple callbacks:
 
-js
-Copy code
+```js
 setTimeout(() => console.log("Hi"), 1000);
 setTimeout(function() { console.log("Hi"); }, 1000);
+```
 ✅ Works either way.
 
 IIFE in ternary (like your example):
 
-js
-Copy code
+```js
 : (() => { console.log("pari"); setTimeout(() => console.log("Pari"), 1000); })();
 : (function() { console.log("pari"); setTimeout(function() { console.log("Pari"); }, 1000); })();
+```
 ✅ Works either way.
 
 4️⃣ When You Cannot Swap
 If your function uses this inside a method and you need it to refer to the object:
 
-js
-Copy code
+```js
 const obj = {
   name: "Alice",
   greet: () => console.log(this.name),  // ❌ this is NOT obj
   greet2: function() { console.log(this.name); } // ✅ works
 };
+```
 If you need arguments object:
 
-js
-Copy code
+```js
 function sum() { console.log(arguments); } // works
 const sumArrow = () => console.log(arguments); // ❌ arguments undefined
+```
 If you want to use new to create instances:
 
-js
-Copy code
+```js
 function Person() { this.name = "Bob"; }
 const p = new Person(); // ✅ works
-
 const PersonArrow = () => { this.name = "Bob"; }
 const p2 = new PersonArrow(); // ❌ error
+```
+
 ✅ TL;DR
 Arrow functions → great for short callbacks, IIFE, map/filter/reduce, no this needed.
 
