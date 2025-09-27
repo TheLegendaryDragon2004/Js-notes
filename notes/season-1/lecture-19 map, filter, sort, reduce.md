@@ -51,7 +51,7 @@ const binaryArr = arr.map((x) => x.toString(2));
 So basically map function is mapping each and every value and transforming it based on given condition.
 
 
-###POLLYFILL
+### POLLYFILL
 ```js
 Array.prototype.mymap = function(callback){
     let res= [];
