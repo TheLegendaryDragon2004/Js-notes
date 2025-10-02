@@ -1,0 +1,230 @@
+Haha 😅 good one — JavaScript coercion is full of WTF moments because of how loosely it converts between types. Let me give you a nice collection of the most famous coercion oddities, with explanations.
+
+
+---
+
+🔥 Famous JavaScript WTF Coercions
+
+1. [] + {}
+
+[] + {} // "[object Object]"
+
+✅ Because [] → "" and {} → "[object Object]", then concatenated.
+
+
+---
+
+2. {} + []
+
+{} + [] // 0
+
+✅ Here {} is treated as an empty block, leaving +[].
++[] → +0 → 0.
+
+
+---
+
+3. true + true
+
+true + true // 2
+
+✅ Booleans become numbers: true → 1.
+
+
+---
+
+4. true == "1"
+
+true == "1" // true
+
+✅ Because "1" is coerced to number 1.
+So true == 1.
+
+
+---
+
+5. [] == ![]
+
+[] == ![] // true
+
+✅ Step by step:
+
+![] → false
+
+So: [] == false
+
+[] → "" → 0
+
+false → 0
+
+0 == 0 → true
+
+
+
+---
+
+6. [] == []
+
+[] == [] // false
+
+✅ Because arrays are objects → compared by reference, not value.
+Two different empty arrays = different references.
+
+
+---
+
+7. null == undefined
+
+null == undefined // true
+null === undefined // false
+
+✅ == considers them equal due to coercion,
+but === checks type (different).
+
+
+---
+
+8. NaN == NaN
+
+NaN == NaN // false
+
+✅ NaN is never equal to anything, not even itself.
+Only isNaN() or Number.isNaN() can check it.
+
+
+---
+
+9. +[]
+
++[] // 0
+
+✅ [] → "" and +"" → 0.
+
+
+---
+
+10. +{}
+
++{} // NaN
+
+✅ {} → "[object Object]".
++"[object Object]" → NaN.
+
+
+---
+
+11. "" - 1
+
+"" - 1 // -1
+
+✅ "" → 0, so 0 - 1 = -1.
+
+
+---
+
+12. "5" - 3
+
+"5" - 3 // 2
+
+✅ - forces numeric conversion: "5" → 5.
+
+
+---
+
+13. "5" + 3
+
+"5" + 3 // "53"
+
+✅ + prefers string concatenation if one operand is string.
+
+
+---
+
+14. [] + []
+
+[] + [] // ""
+
+✅ Both arrays become "" when stringified.
+
+
+---
+
+15. {} + {}
+
+{} + {} // "[object Object][object Object]"
+
+✅ Both become strings and concatenate.
+
+
+---
+
+16. !![]
+
+!![] // true
+
+✅ Any object (including empty array) is truthy.
+
+
+---
+
+17. !+[] + [] + ![]
+
+!+[] + [] + ![] // "truefalse"
+
+✅ Walkthrough:
+
++[] → 0
+
+!0 → true
+
+true + [] → "true"
+
+"true" + ![] → "truefalse"
+
+
+
+---
+
+18. null + 1
+
+null + 1 // 1
+
+✅ null → 0.
+
+
+---
+
+19. undefined + 1
+
+undefined + 1 // NaN
+
+✅ undefined → NaN.
+
+
+---
+
+20. 0.1 + 0.2
+
+0.1 + 0.2 // 0.30000000000000004
+
+✅ Floating-point precision issue (IEEE 754).
+
+
+---
+
+📝 Takeaway
+
++ → favors string if any operand is string.
+
+-, *, / → force number conversion.
+
+== → does type coercion, weird results.
+
+=== → no coercion, strict compare.
+
+
+
+---
+
+👉 Do you want me to make a complete cheat sheet table of all these WTF coercions with rules, so you can refer to it quickly when coding?
+
