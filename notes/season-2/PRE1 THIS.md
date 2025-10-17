@@ -2,8 +2,7 @@
 
 ###
 
-> In JavaScript, the this keyword refers to an object, which object depends on how this is being invoked (used or called).
-
+> this is a special keyword in JavaScript that refers to the object context in which a function is called. Its value depends on how a function is invoked, not where it is defined.
 ## `this` in global space
 
 Anything defined globally is said to be in a global space.
